@@ -1,0 +1,9 @@
+{
+  "name": "ふたりの手書きカレンダー",
+  "short_name": "手書きカレンダー",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f5ef",
+  "theme_color": "#f7f5ef",
+  "icons": []
+}

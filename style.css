@@ -1,0 +1,45 @@
+*{box-sizing:border-box}
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#282820;background:#f7f5ef}
+body{margin:0;padding:env(safe-area-inset-top) 12px env(safe-area-inset-bottom);max-width:1100px;margin-inline:auto}
+button,input,textarea{font:inherit}
+button{border:0;border-radius:10px;padding:10px 14px;background:#365f4b;color:white;cursor:pointer;min-height:42px}
+button.secondary{background:#e7e5dc;color:#333}
+button.danger{background:#a7463d}
+button.active{background:#234632;outline:2px solid #a8c8ad}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 2px}
+h1{font-size:clamp(19px,4vw,25px);margin:0}
+.status{font-size:12px;color:#777;margin:4px 0 0}
+.status.ok{color:#267343}.status.error{color:#b33}
+.toolbar{display:flex;align-items:center;justify-content:center;gap:12px;margin:8px 0 12px}
+.toolbar h2{font-size:20px;min-width:130px;text-align:center;margin:0}
+.toolbar button{font-size:20px;padding:6px 14px}
+.toolbar #todayBtn{font-size:14px;margin-left:4px}
+.legend,.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.legend span{text-align:center;font-size:12px;font-weight:700;padding:6px 0;color:#68685e}
+.legend span:first-child{color:#b34237}.legend span:last-child{color:#3d68a0}
+.day{background:#fff;border:1px solid #e4e1d7;border-radius:7px;min-height:94px;padding:5px;position:relative;overflow:hidden;cursor:pointer}
+.day.outside{opacity:.4;background:#f0eee8}.day.selected{outline:2px solid #3d7656}
+.day.today .date{background:#365f4b;color:white;border-radius:50%;padding:2px 6px}
+.date{font-size:13px;display:inline-block}
+.day:nth-child(7n+1) .date{color:#b34237}.day:nth-child(7n) .date{color:#3d68a0}
+.preview{width:100%;height:58px;display:block;object-fit:contain;margin-top:3px}
+.help{font-size:13px;color:#5f5e55;background:#eeece3;border-radius:10px;padding:10px 12px;margin:14px 0}
+.help p{margin:4px 0 0;line-height:1.5}
+.editor{background:#fff;border:1px solid #e4e1d7;border-radius:12px;padding:12px;margin:14px 0}
+.hidden{display:none}
+.editor-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.editor h3{margin:0;font-size:17px}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button{padding:7px 10px;min-height:36px;font-size:13px}
+.canvas-wrap{height:250px;border:1px solid #d9d6ca;border-radius:8px;overflow:hidden;touch-action:none;background-color:#fff;background-image:linear-gradient(#f1f0eb 1px,transparent 1px);background-size:100% 28px;margin-top:10px}
+canvas{width:100%;height:100%;display:block;touch-action:none}
+.small{font-size:12px;color:#777;line-height:1.5}
+dialog{border:0;border-radius:14px;padding:20px;width:min(94vw,520px);box-shadow:0 10px 40px #0003}
+dialog::backdrop{background:#0006}
+dialog h2{margin-top:0}
+label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
+input,textarea{width:100%;border:1px solid #ccc;border-radius:8px;padding:10px;background:white}
+textarea{font-family:monospace;font-size:12px}
+.dialog-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+footer{text-align:center;color:#888;font-size:11px;padding:16px 0}
+@media(max-width:600px){.day{min-height:70px;padding:3px}.preview{height:39px}.toolbar{gap:6px}.toolbar h2{font-size:17px;min-width:115px}.tools{gap:4px}.tools button{font-size:12px;padding:6px 8px}.canvas-wrap{height:220px}}

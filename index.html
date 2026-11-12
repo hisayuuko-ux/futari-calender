@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f5ef">
+<title>ふたりの手書きカレンダー</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>ふたりの手書きカレンダー</h1>
+    <p id="syncStatus" class="status">未接続</p>
+  </div>
+  <button id="settingsBtn" class="secondary">共有設定</button>
+</header>
+
+<main>
+  <section class="toolbar">
+    <button id="prevMonth" aria-label="前の月">‹</button>
+    <h2 id="monthLabel"></h2>
+    <button id="nextMonth" aria-label="次の月">›</button>
+    <button id="todayBtn" class="secondary">今日</button>
+  </section>
+
+  <section class="legend">
+    <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+  </section>
+  <section id="calendar" class="calendar" aria-label="月間カレンダー"></section>
+
+  <section class="help">
+    <strong>使い方</strong>
+    <p>日付のマスを選ぶと、下に大きな手書き欄が開きます。指またはApple Pencilで書いてください。書いた内容は共有設定後、3台で同期されます。</p>
+  </section>
+
+  <section id="editor" class="editor hidden">
+    <div class="editor-head">
+      <h3 id="selectedDateLabel">日付</h3>
+      <div class="tools">
+        <button id="penBtn" class="active">ペン</button>
+        <button id="eraserBtn">消しゴム</button>
+        <button id="undoBtn">戻す</button>
+        <button id="clearBtn" class="danger">全消去</button>
+      </div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="drawingCanvas"></canvas>
+    </div>
+    <p class="small">書き込みは自動保存されます。消しゴムは線単位で消します。</p>
+  </section>
+</main>
+
+<dialog id="settingsDialog">
+  <form method="dialog" id="settingsForm">
+    <h2>共有設定</h2>
+    <p class="small">Firebaseを設定すると、同じアカウントでログインしたiPad 2台とAndroid 1台で予定を共有できます。</p>
+    <label>Firebase設定（初回のみ）</label>
+    <textarea id="firebaseConfig" rows="6" placeholder='{"apiKey":"...","authDomain":"...","databaseURL":"...","projectId":"...","appId":"..."}'></textarea>
+    <label>共有アカウントのメールアドレス</label>
+    <input id="email" type="email" autocomplete="username" placeholder="共有用メールアドレス">
+    <label>パスワード</label>
+    <input id="password" type="password" autocomplete="current-password" placeholder="パスワード">
+    <div class="dialog-actions">
+      <button type="button" id="saveConfigBtn">設定を保存</button>
+      <button type="button" id="loginBtn">ログイン・同期開始</button>
+      <button type="button" id="logoutBtn" class="secondary">ログアウト</button>
+      <button value="close" class="secondary">閉じる</button>
+    </div>
+    <p id="settingsMessage" class="small" role="status"></p>
+  </form>
+</dialog>
+
+<footer>このカレンダーの内容は、設定したFirebaseアカウントのデータベースに保存されます。</footer>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
